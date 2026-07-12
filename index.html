@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced BioAnalytic — Canine Detection Science</title>
+  <meta name="description" content="Advanced BioAnalytic deploys purpose-bred detection dogs for virus screening in skilled nursing facilities and lithium electrolyte detection in data centers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=27">
+  <style>
+    /* Index-specific overrides */
+    body { background: var(--dark-warm); }
+  </style>
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-brand">Advanced BioAnalytic</div>
+    <div class="loader-track">
+      <div id="loader-bar"></div>
+    </div>
+    <div id="loader-percent">0%</div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="site-header">
+    <a href="index.html" class="header-logo">Advanced <span>BioAnalytic</span></a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="site-nav" id="site-nav">
+        <li><a href="virus-detection.html#team">About</a></li>
+        <li><a href="virus-detection.html">Virus Detection</a></li>
+        <li><a href="battery-detection.html">Lithium Detection</a></li>
+        <li><a href="#science">The Science</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Standalone -->
+  <section class="hero-standalone" id="hero">
+    <video class="hero-video" autoplay muted loop playsinline
+           poster="assets/images/dogs/rocco-server-scent.png">
+      <source src="assets/hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+
+    <!-- Hero phrase — GSAP fades in on load (desktop only) -->
+    <div class="hero-content" id="hero-phrase-1">
+      <span class="hero-label">001 / Canine Surveillance</span>
+      <h1 class="hero-heading">By the time you see it,<br>it's already cost you.</h1>
+    </div>
+
+    <!-- Scroll indicator — standalone, no GSAP dependency -->
+    <div class="service-scroll-hint">
+      <span>Scroll</span>
+      <div class="arrow"></div>
+    </div>
+  </section>
+
+  <!-- Mobile Hero — vertical video, purpose-built for phones -->
+  <section class="hero-mobile" id="hero-mobile">
+    <video class="hero-mobile-video" autoplay muted loop playsinline>
+      <source src="assets/images/dogs/hero-video%202%20vertical.mp4" type="video/mp4">
+    </video>
+    <div class="hero-mobile-overlay"></div>
+    <div class="service-scroll-hint">
+      <span>Scroll</span>
+      <div class="arrow"></div>
+    </div>
+  </section>
+
+  <!-- Canvas (fixed, scroll-driven logo animation) -->
+  <div class="canvas-wrap" id="canvas-wrap">
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <!-- Dark overlay (for stats sections) -->
+  <div id="dark-overlay"></div>
+
+  <!-- Horizontal marquee (fixed, scroll-driven) -->
+  <div class="marquee-wrap" id="marquee-wrap">
+    <div class="marquee-text" id="marquee-text">
+      VIRUS DETECTION &nbsp;—&nbsp; LITHIUM ELECTROLYTE &nbsp;—&nbsp; SKILLED NURSING &nbsp;—&nbsp; DATA CENTERS &nbsp;—&nbsp;
+      VIRUS DETECTION &nbsp;—&nbsp; LITHIUM ELECTROLYTE &nbsp;—&nbsp; SKILLED NURSING &nbsp;—&nbsp; DATA CENTERS &nbsp;—&nbsp;
+    </div>
+  </div>
+
+  <!-- Fork Navigation Panels (fixed, appear when logo splits) -->
+  <a href="virus-detection.html" id="fork-left" class="fork-panel">
+    <div class="fork-inner">
+      <span class="fork-direction">← Virus Detection</span>
+      <span class="fork-label">Skilled Nursing<br>Facilities</span>
+      <span class="fork-sub">Influenza A &amp; B · COVID-19 · Respiratory Screening</span>
+      <span class="fork-cta" data-href="virus-detection.html#contact">Book a Demo →</span>
+    </div>
+  </a>
+  <a href="battery-detection.html" id="fork-right" class="fork-panel">
+    <div class="fork-inner">
+      <span class="fork-direction">Lithium Detection →</span>
+      <span class="fork-label">Data Center<br>Operations</span>
+      <span class="fork-sub">DMC · EMC · DEC · Electrolyte Breach Detection</span>
+      <span class="fork-cta" data-href="battery-detection.html#contact">Join the Founding Partner Program →</span>
+    </div>
+  </a>
+  <div class="fork-divider" id="fork-divider"></div>
+
+  <!-- Scroll Container (900vh) -->
+  <div id="scroll-container">
+
+    <!-- Section 1: The Science — enter 12, leave 40 (spans logo animation, provides context) -->
+    <section class="scroll-section align-left"
+             data-enter="12" data-leave="40" data-animation="fade-up"
+             id="about">
+      <div class="section-inner">
+        <span class="section-label">002 / The Science</span>
+        <h2 class="section-heading">Dogs detect what no instrument can.</h2>
+        <p class="section-body">
+          The canine olfactory system identifies volatile organic compounds at concentrations
+          as low as 1.5 parts per trillion — orders of magnitude beyond any fixed sensor.
+          Viral metabolic signatures. Electrolyte breach vapor. Chemical fingerprints invisible
+          to every instrument on the market.
+        </p>
+        <span class="section-note">Peer-reviewed. Independently verified. Field-tested.</span>
+      </div>
+    </section>
+
+    <!-- Section 2: Stats — enter 44, leave 60 (dark overlay 46-62) -->
+    <section class="scroll-section section-stats"
+             data-enter="44" data-leave="60" data-animation="stagger-up">
+      <div class="stats-grid">
+        <div class="stat">
+          <span class="stat-number" data-value="81" data-decimals="0">0</span>
+          <span class="stat-suffix">–97%</span>
+          <span class="stat-label">Sensitivity in SARS-CoV-2 detection</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-value="91" data-decimals="0">0</span>
+          <span class="stat-suffix">–100%</span>
+          <span class="stat-label">Specificity (peer-reviewed)</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-value="54" data-decimals="0">0</span>
+          <span class="stat-suffix">.1/100K</span>
+          <span class="stat-label">Peak nursing home flu rate, Jan 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Two Service Lines — enter 62, leave 76 -->
+    <section class="scroll-section align-right"
+             data-enter="62" data-leave="76" data-animation="slide-right"
+             id="science">
+      <div class="section-inner">
+        <span class="section-label">003 / Two Service Lines</span>
+        <h2 class="section-heading">Virus. Battery.<br>Two threats.<br>One breed.</h2>
+        <p class="section-body">
+          Advanced BioAnalytic deploys purpose-trained Labrador Retrievers
+          from a 100-year family breeding tradition. Every dog serves one mission:
+          find the threat before it costs you.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4: Fork CTA — desktop only; references fork panels, nonsensical on mobile -->
+    <section class="scroll-section section-cta align-left desktop-only"
+             data-enter="65" data-leave="86" data-animation="fade-up"
+             data-persist="true">
+      <div class="section-inner" style="max-width:400px">
+        <span class="section-label">004 / Choose Your Path</span>
+        <h2 class="section-heading" style="font-size: clamp(1.8rem, 3vw, 3rem);">
+          The logo split<br>is no accident.
+        </h2>
+        <p class="section-body">
+          Two service lines. Two distinct threats. Select your path above.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: Start the Conversation — enter 82, leave 100, persist -->
+    <section class="scroll-section section-cta desktop-only"
+             data-enter="82" data-leave="100" data-animation="scale-up"
+             data-persist="true"
+             id="contact">
+      <div class="section-inner" style="background:rgba(10,8,6,0.55); padding:3rem 2.5rem; border-radius:4px; backdrop-filter:blur(4px);">
+        <span class="section-label">005 / Contact</span>
+        <h2 class="section-heading" style="font-size: clamp(2.5rem, 5vw, 5rem);">
+          Start the Conversation.
+        </h2>
+        <p class="section-body">
+          Every program begins with a conversation about your facility, your needs,
+          and what the science can do for you.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+          <a href="virus-detection.html#contact" class="cta-button" style="background:#2A3240; border-color:#2A3240; color:var(--cream);">Virus Detection</a>
+          <a href="battery-detection.html#contact" class="cta-button primary">Founding Partner Program</a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /#scroll-container -->
+
+  <!-- Mobile logo animation — between text sections and service line cards (hidden on desktop) -->
+  <section class="mobile-logo-section" id="mobile-logo">
+    <video class="mobile-logo-video" autoplay muted loop playsinline>
+      <source src="assets/images/dogs/logo-animation%20vertical.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <!-- Mobile service picker — appears after info sections on mobile; hidden on desktop -->
+  <div id="fork-mobile">
+    <a href="virus-detection.html" class="fork-mobile-card">
+      <span class="fork-mobile-label">← Virus Detection</span>
+      <span class="fork-mobile-title">Skilled Nursing<br>Facilities</span>
+      <span class="fork-mobile-sub">Influenza A &amp; B · COVID-19 · Respiratory Screening</span>
+      <span class="fork-mobile-cta">Book a Demo →</span>
+    </a>
+    <a href="battery-detection.html" class="fork-mobile-card">
+      <span class="fork-mobile-label">Lithium Detection →</span>
+      <span class="fork-mobile-title">Data Center<br>Operations</span>
+      <span class="fork-mobile-sub">DMC · EMC · DEC · Electrolyte Breach Detection</span>
+      <span class="fork-mobile-cta">Join the Founding Partner Program →</span>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <div id="mobile-nav-bg"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="js/app.js?v=14"></script>
+  <script>
+    document.querySelectorAll('.fork-cta[data-href]').forEach(function(cta) {
+      cta.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.location.href = this.dataset.href;
+      });
+    });
+  </script>
+</body>
+</html>

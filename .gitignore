@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
+
+# Claude private context — never publish
+.claude/
+
+# Dev server scripts — not needed for static hosting
+server.js
+serve.ps1
+START SERVER.bat
+
+# Unused / unreferenced video files
+By the time*
+assets/logo-animation.mp4
+
+# OS clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.swp

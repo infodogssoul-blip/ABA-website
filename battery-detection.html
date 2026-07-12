@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lithium Electrolyte Detection — Advanced BioAnalytic</title>
+  <meta name="description" content="Canine lithium electrolyte detection for data centers and server rooms. Our dogs detect DMC, EMC, and DEC — the carbonates that escape only when a battery seal is breached. Join the Founding Partner Program.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=27">
+  <style>
+    body { background: var(--dark-warm); }
+    .battery .service-hero-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(26,22,20,0.95) 0%,
+        rgba(26,22,20,0.55) 40%,
+        rgba(26,22,20,0.2) 100%
+      );
+    }
+    .selectivity-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    .selectivity-table th, .selectivity-table td {
+      padding: 0.9rem 1.25rem;
+      text-align: left;
+      font-size: 0.85rem;
+      border-bottom: 1px solid rgba(240,234,224,0.08);
+    }
+    .selectivity-table th {
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+      color: var(--gold);
+    }
+    .selectivity-table td { color: rgba(240,234,224,0.7); }
+    .selectivity-table tr:hover td { color: var(--cream); background: rgba(201,169,110,0.04); }
+    .check { color: var(--gold); font-weight: 600; }
+    .cross { color: rgba(240,234,224,0.25); }
+    .rocco-img-wrap {
+      position: relative;
+      overflow: visible;
+      background: transparent;
+    }
+    .rocco-img-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 580px;
+      object-fit: contain;
+    }
+    .rocco-img-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; left: 0;
+      width: 45%;
+      background: linear-gradient(to right, #1A1614 0%, transparent 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .rocco-img-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 30%;
+      background: linear-gradient(to bottom, #1A1614 0%, transparent 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ─── Rocco Video Block ─────────────────────────────────── */
+    .rocco-video-block { width: 100%; }
+    .rocco-video-frame {
+      border: 2px solid rgba(201,169,110,0.45);
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+      overflow: hidden;
+      box-shadow: 0 16px 60px rgba(0,0,0,0.75);
+    }
+    .rocco-video-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .rocco-video-watch {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: rgba(6,4,2,0.9);
+      border: 2px solid rgba(201,169,110,0.45);
+      border-top: 1px solid rgba(201,169,110,0.2);
+      border-radius: 0 0 4px 4px;
+      text-decoration: none;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+    .rocco-video-watch:hover {
+      background: rgba(201,169,110,0.07);
+      border-color: rgba(201,169,110,0.7);
+    }
+    .rocco-video-watch-left {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .rocco-video-play-icon {
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.65rem;
+      color: #1A1614;
+      padding-left: 3px;
+      transition: transform 0.3s ease;
+    }
+    .rocco-video-watch:hover .rocco-video-play-icon { transform: scale(1.1); }
+    .rocco-video-label {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .rocco-video-sub {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(240,234,224,0.32);
+      margin-top: 0.2rem;
+    }
+    .rocco-video-arrow {
+      color: rgba(240,234,224,0.28);
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .rocco-video-watch:hover .rocco-video-arrow {
+      transform: translateX(5px);
+      color: var(--gold);
+    }
+
+    /* ─── Where We Fit ─────────────────────────────────── */
+    .wwf-section {
+      padding: 6rem 7vw;
+      border-top: 1px solid rgba(201,169,110,0.12);
+    }
+    .wwf-header { max-width: 820px; }
+    .wwf-eyebrow {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .wwf-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--cream);
+      margin: 0 0 1.5rem;
+    }
+    .wwf-headline em { font-style: italic; color: #A18F73; }
+    .wwf-subhead {
+      font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+      line-height: 1.8;
+      color: rgba(240,234,224,0.65);
+      max-width: 740px;
+    }
+    /* Timeline responsive wrappers */
+    .aba-tl-desktop { display: block; }
+    .aba-tl-mobile  { display: none; }
+    .aba-tl-mobile svg { width: 100%; height: auto; display: block; }
+    /* Timeline */
+    .wwf-timeline-wrap {
+      overflow-x: auto;
+      margin: 3rem 0 0;
+      -webkit-overflow-scrolling: touch;
+    }
+    .wwf-timeline-inner {
+      min-width: 720px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .wwf-timeline-inner svg { width: 100%; display: block; }
+    /* Cards */
+    .wwf-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+    .wwf-card {
+      padding: 2rem 1.75rem;
+      border: 1px solid rgba(240,234,224,0.1);
+      border-radius: 3px;
+      background: rgba(255,255,255,0.015);
+    }
+    .wwf-card--ours {
+      border-color: #4A5C49;
+      background: rgba(74,92,73,0.13);
+    }
+    .wwf-card--tamer {
+      border-color: #A18F73;
+      background: rgba(161,143,115,0.08);
+    }
+    .wwf-card--tamer .wwf-card-tag { color: #A18F73; }
+    .wwf-card--nano {
+      border-color: #B45A34;
+      background: rgba(180,90,52,0.08);
+    }
+    .wwf-card--nano .wwf-card-tag { color: #B45A34; }
+    .wwf-card-tag {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(240,234,224,0.35);
+      margin-bottom: 0.9rem;
+    }
+    .wwf-card--ours .wwf-card-tag { color: #7A9C79; }
+    .wwf-card-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 1.6vw, 1.5rem);
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.25rem;
+    }
+    .wwf-card-role {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(240,234,224,0.35);
+      margin-bottom: 1rem;
+    }
+    .wwf-card-desc {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: rgba(240,234,224,0.58);
+    }
+    /* Reassurance */
+    .wwf-reassurance {
+      text-align: center;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1rem, 1.4vw, 1.2rem);
+      color: rgba(240,234,224,0.45);
+      margin: 3rem auto 0;
+      max-width: 680px;
+      line-height: 1.65;
+    }
+    /* CTA block */
+    .wwf-cta {
+      margin-top: 5rem;
+      padding-top: 4rem;
+      border-top: 1px solid rgba(201,169,110,0.15);
+      text-align: center;
+    }
+    .wwf-cta-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      font-weight: 700;
+      color: var(--cream);
+      margin: 0.75rem 0 1.25rem;
+    }
+    .wwf-cta-body {
+      font-size: clamp(0.88rem, 1.2vw, 1rem);
+      line-height: 1.8;
+      color: rgba(240,234,224,0.58);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+    .wwf-cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    /* Footnote */
+    .wwf-footnote {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(240,234,224,0.06);
+      font-size: 0.7rem;
+      color: rgba(240,234,224,0.22);
+      letter-spacing: 0.05em;
+      line-height: 1.7;
+    }
+    @media (max-width: 800px) {
+      .aba-tl-desktop { display: none; }
+      .aba-tl-mobile  { display: block; margin: 3rem 0 0; }
+      .wwf-cards { grid-template-columns: 1fr; }
+      .wwf-cta-buttons { flex-direction: column; }
+      .wwf-cta-buttons .cta-button { width: 100%; text-align: center; }
+      .wwf-section { padding: 4rem 6vw; }
+      .wwf-headline { font-size: clamp(1.8rem, 5vw, 3rem); }
+      .wwf-cta { margin-top: 3rem; padding-top: 3rem; }
+      .wwf-cta-body { max-width: 100%; }
+      .rocco-video-watch { gap: 0.75rem; padding: 0.85rem 1rem; }
+    }
+    @media (max-width: 600px) {
+      .wwf-section { padding: 3rem 5vw; }
+      .wwf-headline { font-size: clamp(1.5rem, 6vw, 2.4rem); }
+      .wwf-subhead { font-size: 0.88rem; }
+      .wwf-cta-heading { font-size: clamp(1.4rem, 6.5vw, 2rem); }
+      .wwf-reassurance { font-size: 0.88rem; margin-top: 2rem; }
+      .wwf-card { padding: 1.5rem 1.25rem; }
+      .rocco-video-frame { border-width: 1px; }
+      .rocco-video-watch { border-width: 1px; }
+      .rocco-video-label { font-size: 0.65rem; letter-spacing: 0.15em; }
+      .rocco-video-sub { font-size: 0.58rem; }
+      .rocco-video-play-icon { width: 1.8rem; height: 1.8rem; font-size: 0.58rem; }
+    }
+    @media (max-width: 480px) {
+      .wwf-section { padding: 2.5rem 5vw; }
+      .wwf-headline { font-size: clamp(1.3rem, 7vw, 2rem); }
+      .selectivity-table th, .selectivity-table td { padding: 0.7rem 0.75rem; font-size: 0.78rem; }
+      .wwf-card-title { font-size: 1.1rem; }
+      .rocco-video-watch { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body class="service-page battery">
+
+  <!-- Header -->
+  <header class="site-header scrolled" id="site-header">
+    <a href="index.html" class="header-logo">Advanced <span>BioAnalytic</span></a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="site-nav" id="site-nav">
+        <li><a href="virus-detection.html#team">About</a></li>
+        <li><a href="virus-detection.html">Virus Detection</a></li>
+        <li><a href="battery-detection.html" style="color:var(--cream)">Lithium Detection</a></li>
+        <li><a href="#science">The Science</a></li>
+        <li><a href="#contact" class="nav-cta">Join the Program</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="service-hero battery">
+    <img class="service-hero-img"
+         src="assets/images/dogs/rocco-server-work.png"
+         alt="Detection dog working a live data center rack in ESD harness, Advanced BioAnalytic">
+    <div class="service-hero-overlay"></div>
+    <div class="service-hero-content">
+      <span class="service-hero-label">Lithium Electrolyte Detection — Data Centers &amp; Server Rooms</span>
+      <h1 class="service-hero-heading">
+        A failing battery<br>
+        <em>gives itself away.</em>
+      </h1>
+      <p class="service-hero-sub">
+        Your instruments don't hear it. Our dogs do.
+        When a lithium-ion battery seal breaches, the electrolyte carbonates reach the air.
+        That's the signal a trained dog finds — before the failure becomes a fire.
+      </p>
+    </div>
+    <div class="service-scroll-hint">
+      <span>Scroll</span>
+      <div class="arrow"></div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="num">1.5<span class="suf">ppt</span></div>
+      <div class="lbl">Detection threshold (parts per trillion)</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">64<span class="suf"> pts</span></div>
+      <div class="lbl">Scent points in lab demonstration</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">750<span class="suf"> CFM</span></div>
+      <div class="lbl">Active airflow during lab runs</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">12<span class="suf">+</span></div>
+      <div class="lbl">AKC Scent Work titles — each dog</div>
+    </div>
+  </div>
+
+  <!-- Marquee strip -->
+  <div class="service-marquee">
+    <div class="marquee-inner">
+      <span>DIMETHYL CARBONATE</span><span class="dot">◆</span>
+      <span>ETHYL METHYL CARBONATE</span><span class="dot">◆</span>
+      <span>DIETHYL CARBONATE</span><span class="dot">◆</span>
+      <span>ELECTROLYTE BREACH</span><span class="dot">◆</span>
+      <span>EARLY WARNING</span><span class="dot">◆</span>
+      <span>DIMETHYL CARBONATE</span><span class="dot">◆</span>
+      <span>ETHYL METHYL CARBONATE</span><span class="dot">◆</span>
+      <span>DIETHYL CARBONATE</span><span class="dot">◆</span>
+      <span>ELECTROLYTE BREACH</span><span class="dot">◆</span>
+      <span>EARLY WARNING</span><span class="dot">◆</span>
+    </div>
+  </div>
+
+  <!-- Where We Fit — positioned early so visitors understand we're additive, not replacing existing sensors -->
+  <section class="service-section wwf-section">
+    <div class="wwf-header">
+      <span class="wwf-eyebrow">Where we fit in</span>
+      <h2 class="wwf-headline">
+        We don't replace your sensors.<br>
+        <em>We work the window before them.</em>
+      </h2>
+      <p class="wwf-subhead">
+        Your Li-ion Tamer and NevadaNano systems are built to catch a battery
+        that is already failing — the vent, the gas build-up. Our dogs find the
+        trace electrolyte of a breaching battery weeks earlier, while it is still
+        a quiet leak. Same timeline. Earlier point. No overlap, no competition.
+      </p>
+    </div>
+
+    <!-- Timeline: desktop horizontal / mobile vertical -->
+    <div class="aba-tl-desktop">
+    <div class="wwf-timeline-wrap">
+      <div class="wwf-timeline-inner">
+        <svg viewBox="0 0 1120 560" xmlns="http://www.w3.org/2000/svg" role="img"
+             aria-label="A battery failure timeline. Advanced BioAnalytic's canine breach audit detects trace electrolyte at the micro-leak stage, weeks before the Li-ion Tamer detects an acute vent event and before NevadaNano detects explosive gas build-up.">
+          <defs>
+            <linearGradient id="aba-sev" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#4A5C49"/>
+              <stop offset="0.55" stop-color="#A18F73"/>
+              <stop offset="1" stop-color="#B45A34"/>
+            </linearGradient>
+            <linearGradient id="aba-band" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#4A5C49" stop-opacity="0.34"/>
+              <stop offset="1" stop-color="#4A5C49" stop-opacity="0.04"/>
+            </linearGradient>
+            <filter id="aba-glow" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="6" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <style>
+            .t-mono  { font: 600 12px/1   'Jost', Arial, sans-serif; letter-spacing: 2px;   text-transform: uppercase; }
+            .t-mono2 { font: 600 12.5px/1 'Jost', Arial, sans-serif; letter-spacing: 1.5px; text-transform: uppercase; }
+            .t-stage { font: 500 14px/1   'Jost', Arial, sans-serif; }
+            .t-note  { font: 400 11.5px/1 'Jost', Arial, sans-serif; }
+            .t-sys   { font: italic 400 15px/1 'Cormorant', Georgia, serif; }
+            .t-brand { font: 600   21px/1 'Cormorant', Georgia, serif; }
+          </style>
+          <rect x="246" y="92" width="156" height="368" rx="12" fill="url(#aba-band)"
+                stroke="#4A5C49" stroke-opacity="0.55" stroke-width="1"/>
+          <path d="M 96,432 C 240,426 300,420 360,406 C 470,380 540,338 620,300
+                   C 720,254 792,208 856,176 C 936,132 992,96 1044,74"
+                fill="none" stroke="url(#aba-sev)" stroke-width="4" stroke-linecap="round"/>
+          <line x1="80" y1="470" x2="1050" y2="470" stroke="#3A332D" stroke-width="2"/>
+          <polygon points="1050,464 1067,470 1050,476" fill="#6B5F52"/>
+          <text class="t-mono" x="86"   y="500" fill="#6B5F52">EARLIEST</text>
+          <text class="t-mono" x="1067" y="500" fill="#B45A34" text-anchor="end">FIRE</text>
+          <circle cx="150" cy="470" r="4" fill="#6B5F52"/>
+          <text class="t-stage" x="150" y="514" fill="#8A7D6D" text-anchor="middle">Intact</text>
+          <text class="t-note"  x="150" y="533" fill="#5F5449" text-anchor="middle">no emission · ignored</text>
+          <line x1="340" y1="470" x2="340" y2="406" stroke="#7C8A79" stroke-width="1.4" stroke-dasharray="3 4"/>
+          <circle cx="340" cy="470" r="8.5" fill="#F3ECE0" filter="url(#aba-glow)"/>
+          <circle cx="340" cy="406" r="5"   fill="#F3ECE0"/>
+          <text class="t-stage" x="340" y="514" fill="#C9BCA5" text-anchor="middle">Micro-leak</text>
+          <text class="t-note"  x="340" y="533" fill="#8A7D6D" text-anchor="middle">trace electrolyte · ppt–ppb</text>
+          <line x1="620" y1="470" x2="620" y2="300" stroke="#A18F73" stroke-width="1.4" stroke-dasharray="3 4"/>
+          <circle cx="620" cy="470" r="7" fill="#A18F73"/>
+          <circle cx="620" cy="300" r="5" fill="#A18F73"/>
+          <text class="t-stage" x="620" y="514" fill="#C9BCA5" text-anchor="middle">Acute vent</text>
+          <text class="t-note"  x="620" y="533" fill="#8A7D6D" text-anchor="middle">sudden spike · 10&#8202;ppm/sec</text>
+          <line x1="856" y1="470" x2="856" y2="176" stroke="#B45A34" stroke-width="1.4" stroke-dasharray="3 4"/>
+          <circle cx="856" cy="470" r="7" fill="#B45A34"/>
+          <circle cx="856" cy="176" r="5" fill="#B45A34"/>
+          <text class="t-stage" x="856" y="514" fill="#C9BCA5" text-anchor="middle">Gas build-up</text>
+          <text class="t-note"  x="856" y="533" fill="#8A7D6D" text-anchor="middle">approaching %LEL</text>
+          <circle cx="1030" cy="470" r="4" fill="#B45A34"/>
+          <text class="t-stage" x="1030" y="514" fill="#B45A34" text-anchor="middle">Runaway</text>
+          <!-- Li-ion Tamer: above the curve (curve is at y≈300 here) -->
+          <text class="t-mono" x="636" y="168" fill="#6B5F52">ACUTE-EVENT LAYER</text>
+          <text class="t-sys"  x="636" y="192" fill="#A18F73">Li-ion Tamer Gen 3</text>
+          <!-- NevadaNano: below the curve (curve is at y≈176 at x=856), above the baseline -->
+          <text class="t-mono" x="870" y="230" fill="#6B5F52">EXPLOSION-PREVENTION LAYER</text>
+          <text class="t-sys"  x="870" y="254" fill="#B45A34">NevadaNano MPS</text>
+          <text class="t-mono2" x="324" y="150" fill="#F3ECE0" text-anchor="middle">THIS IS WHERE WE WORK</text>
+          <text class="t-brand" x="324" y="186" fill="#F3ECE0" text-anchor="middle">Advanced BioAnalytic</text>
+          <text class="t-sys"   x="324" y="212" fill="#C9BCA5" text-anchor="middle">Canine breach audit</text>
+          <text class="t-note"  x="324" y="236" fill="#9DA88F" text-anchor="middle">weeks before any sensor</text>
+          <text class="t-note"  x="324" y="253" fill="#9DA88F" text-anchor="middle">is designed to trigger</text>
+          <path d="M 150,352 L 150,338 L 610,338 L 610,352" fill="none" stroke="#6B5F52" stroke-width="1.4"/>
+          <text class="t-mono2" x="380" y="326" fill="#8A7D6D" text-anchor="middle">THE WINDOW YOUR SENSORS AREN&#8217;T BUILT TO SEE</text>
+        </svg>
+      </div>
+    </div>
+    </div><!-- /.aba-tl-desktop -->
+
+    <!-- Mobile vertical timeline (portrait, scales to full width) -->
+    <div class="aba-tl-mobile">
+      <svg viewBox="0 0 680 1200" xmlns="http://www.w3.org/2000/svg" role="img"
+           aria-label="A battery failure timeline shown top to bottom. Advanced BioAnalytic's canine breach audit detects trace electrolyte at the micro-leak stage, before the Li-ion Tamer detects an acute vent and before NevadaNano detects explosive gas build-up.">
+        <defs>
+          <linearGradient id="aba-sevv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#4A5C49"/>
+            <stop offset="0.55" stop-color="#A18F73"/>
+            <stop offset="1" stop-color="#B45A34"/>
+          </linearGradient>
+          <linearGradient id="aba-bandv" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#4A5C49" stop-opacity="0.34"/>
+            <stop offset="1" stop-color="#4A5C49" stop-opacity="0.04"/>
+          </linearGradient>
+          <filter id="aba-glowv" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="6" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <style>
+          .t-mono {font:600 19px/1 'Jost',Arial,sans-serif; letter-spacing:2px; text-transform:uppercase;}
+          .t-mono2{font:600 19px/1 'Jost',Arial,sans-serif; letter-spacing:1.5px; text-transform:uppercase;}
+          .t-stage{font:500 23px/1 'Jost',Arial,sans-serif;}
+          .t-note {font:400 18px/1 'Jost',Arial,sans-serif;}
+          .t-sys  {font:italic 400 26px/1 'Cormorant',Georgia,serif;}
+          .t-brand{font:600 32px/1 'Cormorant',Georgia,serif;}
+        </style>
+        <!-- severity spine (forest -> stone -> rust, top to bottom) -->
+        <rect x="93" y="160" width="6" height="920" rx="3" fill="url(#aba-sevv)"/>
+        <!-- direction labels -->
+        <text class="t-mono" x="96" y="130" fill="#6B5F52" text-anchor="middle">EARLIEST</text>
+        <text class="t-mono" x="96" y="1130" fill="#B45A34" text-anchor="middle">FIRE</text>
+        <!-- blind-window bracket -->
+        <path d="M 60,200 L 46,200 L 46,600 L 60,600" fill="none" stroke="#6B5F52" stroke-width="1.4"/>
+        <text class="t-mono2" x="30" y="400" fill="#8A7D6D" text-anchor="middle"
+              transform="rotate(-90 30 400)">THE WINDOW YOUR SENSORS MISS</text>
+        <!-- STAGE 1: INTACT -->
+        <circle cx="96" cy="200" r="4" fill="#6B5F52"/>
+        <line x1="99" y1="200" x2="150" y2="200" stroke="#3A332D" stroke-width="1.4"/>
+        <text class="t-stage" x="158" y="196" fill="#8A7D6D">Intact</text>
+        <text class="t-note"  x="158" y="220" fill="#5F5449">no emission · healthy batteries ignored</text>
+        <!-- STAGE 2: MICRO-LEAK / OURS -->
+        <rect x="140" y="326" width="512" height="212" rx="14" fill="url(#aba-bandv)"
+              stroke="#4A5C49" stroke-opacity="0.55" stroke-width="1"/>
+        <line x1="99" y1="410" x2="150" y2="410" stroke="#7C8A79" stroke-width="1.6"/>
+        <circle cx="96" cy="410" r="10" fill="#F3ECE0" filter="url(#aba-glowv)"/>
+        <text class="t-mono2" x="164" y="360" fill="#F3ECE0">THIS IS WHERE WE WORK</text>
+        <text class="t-brand" x="164" y="394" fill="#F3ECE0">Advanced BioAnalytic</text>
+        <text class="t-sys"   x="164" y="422" fill="#C9BCA5">Canine breach audit</text>
+        <text class="t-note"  x="164" y="452" fill="#9DA88F">Micro-leak · trace electrolyte · ppt–ppb</text>
+        <text class="t-note"  x="164" y="478" fill="#9DA88F">Alerts weeks before any sensor is</text>
+        <text class="t-note"  x="164" y="500" fill="#9DA88F">designed to trigger.</text>
+        <!-- STAGE 3: ACUTE VENT / LI-ION TAMER -->
+        <line x1="99" y1="680" x2="150" y2="680" stroke="#A18F73" stroke-width="1.4"/>
+        <circle cx="96" cy="680" r="7" fill="#A18F73"/>
+        <text class="t-mono" x="158" y="654" fill="#6B5F52">ACUTE-EVENT LAYER</text>
+        <text class="t-sys"  x="158" y="682" fill="#A18F73">Li-ion Tamer Gen 3</text>
+        <text class="t-note" x="158" y="708" fill="#8A7D6D">Acute vent · sudden spike · 10 ppm/sec</text>
+        <!-- STAGE 4: GAS BUILD-UP / NEVADANANO -->
+        <line x1="99" y1="880" x2="150" y2="880" stroke="#B45A34" stroke-width="1.4"/>
+        <circle cx="96" cy="880" r="7" fill="#B45A34"/>
+        <text class="t-mono" x="158" y="854" fill="#6B5F52">EXPLOSION-PREVENTION LAYER</text>
+        <text class="t-sys"  x="158" y="882" fill="#B45A34">NevadaNano MPS</text>
+        <text class="t-note" x="158" y="908" fill="#8A7D6D">Gas build-up · approaching %LEL</text>
+        <!-- STAGE 5: RUNAWAY -->
+        <line x1="99" y1="1050" x2="150" y2="1050" stroke="#B45A34" stroke-width="1.4"/>
+        <circle cx="96" cy="1050" r="4" fill="#B45A34"/>
+        <text class="t-stage" x="158" y="1046" fill="#B45A34">Runaway</text>
+        <text class="t-note"  x="158" y="1070" fill="#8A7D6D">thermal event · too late</text>
+      </svg>
+    </div><!-- /.aba-tl-mobile -->
+
+    <div class="wwf-cards">
+      <div class="wwf-card wwf-card--ours">
+        <span class="wwf-card-tag">Predictive · earliest</span>
+        <div class="wwf-card-title">Advanced BioAnalytic</div>
+        <div class="wwf-card-role">Canine breach audit</div>
+        <p class="wwf-card-desc">Finds the trace electrolyte of a breaching battery while it is still a quiet, room-temperature leak — the window before anything spikes.</p>
+      </div>
+      <div class="wwf-card wwf-card--tamer">
+        <span class="wwf-card-tag">Acute event</span>
+        <div class="wwf-card-title">Li-ion Tamer Gen 3</div>
+        <div class="wwf-card-role">Rate-of-change sensor</div>
+        <p class="wwf-card-desc">Catches the sudden vent — a rapid concentration jump of 10&#8202;ppm/sec. Built to see the spike, not the slow leak that precedes it.</p>
+      </div>
+      <div class="wwf-card wwf-card--nano">
+        <span class="wwf-card-tag">Explosion prevention</span>
+        <div class="wwf-card-title">NevadaNano MPS</div>
+        <div class="wwf-card-role">Flammable-gas monitor</div>
+        <p class="wwf-card-desc">Guards the atmosphere as gas approaches explosive levels (%LEL). The last line — and orders of magnitude above a trace leak.</p>
+      </div>
+    </div>
+
+    <p class="wwf-reassurance">
+      Your existing systems stay exactly where they are, doing exactly what
+      they do best. We simply add the layer nothing else is watching.
+    </p>
+
+    <div class="wwf-cta">
+      <span class="wwf-eyebrow">Founding-partner site · no cost</span>
+      <h3 class="wwf-cta-heading">See the earliest layer in your facility.</h3>
+      <p class="wwf-cta-body">
+        We're selecting a small number of facilities as founding-partner sites. As a founding partner,
+        your audit is at no cost — and together we generate the first field-validation data for canine
+        breach detection in live battery environments. If you'd like to see whether your site qualifies,
+        reach out.
+      </p>
+      <div class="wwf-cta-buttons">
+        <a href="#contact" class="cta-button primary">See if your site qualifies →</a>
+        <a href="tel:+17655851563" class="cta-button">(765) 585-1563</a>
+      </div>
+    </div>
+
+    <p class="wwf-footnote">
+      Canine sensitivity figures reflect published olfaction research
+      (Concha et al., <em>Frontiers in Veterinary Science</em>, 2019), not Advanced
+      BioAnalytic field measurements. Founding partners generate the first field data.
+    </p>
+  </section>
+
+  <!-- The Threat -->
+  <section class="service-section" id="science">
+    <div class="section-pair">
+      <div>
+        <span class="service-label">001 / The Threat</span>
+        <h2 class="service-heading">A lithium-ion battery failure doesn't announce itself.</h2>
+        <p class="service-body">
+          Thermal runaway in lithium-ion batteries begins long before visible signs.
+          The electrolyte solvents — dimethyl carbonate (DMC), ethyl methyl carbonate (EMC),
+          and diethyl carbonate (DEC) — are sealed inside a healthy battery.
+          When that seal is compromised, those compounds reach the air.
+        </p>
+        <p class="service-body" style="margin-top:1rem">
+          That moment of breach is the earliest possible warning. Fixed gas sensors on a
+          data center floor aren't sensitive enough to catch it. Our dogs are.
+        </p>
+        <div class="science-ref">
+          <p><strong>Field precedent:</strong> U.S. FAA flight-line battery detection program (DOT/FAA/TCTN-23/63, 2023) and
+          WFS / DiagNose six-month air-cargo trial (Lyon, 2022) confirm operational canine detection of lithium-battery odor.
+          ABA's electrolyte-specific approach adds selectivity to distinguish a failing battery from a healthy one.</p>
+        </div>
+      </div>
+      <div class="pair-img">
+        <img src="assets/images/dogs/rocco-server-scent.png"
+             alt="Detection dog locating scent in server environment">
+      </div>
+    </div>
+  </section>
+
+  <!-- The Selectivity -->
+  <section class="service-section">
+    <div class="section-pair reverse">
+      <div>
+        <span class="service-label">002 / The Selectivity</span>
+        <h2 class="service-heading">Not trained on lithium.<br>Trained on what comes out.</h2>
+        <p class="service-body">
+          This distinction is the whole point. Lithium and battery hardware are present in every
+          intact battery in your data center. A dog trained on them would alert on thousands
+          of healthy batteries and tell you nothing useful.
+        </p>
+        <p class="service-body" style="margin-top:1rem">
+          Our dogs are imprinted on the three electrolyte solvents — DMC, EMC, DEC — that are
+          sealed inside a sound battery and only reach the air when a seal is breached.
+          They ignore every healthy battery and alert only on a compromised one.
+        </p>
+        <table class="selectivity-table">
+          <thead>
+            <tr>
+              <th>Target</th>
+              <th>Present in healthy battery</th>
+              <th>Released on breach</th>
+              <th>Trained on</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lithium metal</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">—</span></td>
+              <td><span class="cross">No</span></td>
+            </tr>
+            <tr>
+              <td>Battery casing / PCB</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">—</span></td>
+              <td><span class="cross">No</span></td>
+            </tr>
+            <tr>
+              <td>DMC · EMC · DEC (electrolytes)</td>
+              <td><span class="cross">Sealed</span></td>
+              <td><span class="check">✓ On breach</span></td>
+              <td><span class="check" style="color:var(--gold)">Yes — target</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pair-img" style="align-self:flex-start">
+        <img src="assets/images/dogs/Rocco%20search%20train.png"
+             alt="Detection dog working a search training scenario">
+      </div>
+    </div>
+  </section>
+
+  <!-- The ESD Harness -->
+  <div style="background:rgba(10,8,6,0.55);">
+  <section class="pull-quote" style="border-bottom:none; padding-bottom:2.5rem;">
+    <blockquote>
+      "No competitor has this. A dog that can work inside a live server room
+      without generating a single spark."
+    </blockquote>
+    <cite>The ESD Harness — Advanced BioAnalytic</cite>
+  </section>
+
+  <div class="harness-callout" style="padding-top:1.5rem;">
+    <div class="harness-img">
+      <img src="assets/images/dogs/rocco-harness-front.jpg"
+           alt="ESD harness chest strap with grounding chain — detail">
+    </div>
+    <div class="harness-img">
+      <img src="assets/images/dogs/rocco-harness-side-close.jpg"
+           alt="ESD harness side view — brass buckle detail">
+    </div>
+    <div class="harness-text">
+      <span class="service-label">003 / The ESD Harness</span>
+      <h2 class="service-heading" style="font-size: clamp(1.8rem, 2.5vw, 2.8rem);">
+        Amish-made.<br>Silver-threaded.<br>The only one in the industry.
+      </h2>
+      <p class="service-body">
+        The electrostatic discharge (ESD) harness is an exclusive Advanced BioAnalytic invention.
+        Custom-built by an Amish harness maker who hand-sews silver thread directly into the
+        harness material.
+      </p>
+      <p class="service-body" style="margin-top:1rem">
+        That silver thread captures static electricity from the dog's coat and carries it through
+        the harness to a grounding chain — preventing any spark risk inside a live server room.
+        Traditional craftsmanship. Data center safety engineering. One purpose.
+      </p>
+      <p class="service-body" style="margin-top:1rem">
+        Our dogs also wear military-grade hearing protectors in environments with active cooling
+        fans and UPS systems.
+      </p>
+    </div>
+  </div>
+  </div><!-- /.harness-combined -->
+
+  <!-- Rocco's Credentials -->
+  <section class="service-section">
+    <div class="section-pair">
+      <div>
+        <span class="service-label">004 / The Dog</span>
+        <h2 class="service-heading">Rocco.</h2>
+        <p class="service-body">
+          Rocco is a Labrador Retriever purpose-trained for lithium electrolyte detection —
+          in active scent training since February 2024. Bred from Labncroft Partnership's
+          four concurrent working Lab pedigree lines, a 100-year family tradition rooted in
+          field-performance genetics going back to 1880s Setter dogs.
+        </p>
+        <div style="margin-top:2rem; display:flex; flex-wrap:wrap; gap:0.75rem;">
+          <span style="padding:0.5rem 1rem;border:1px solid rgba(201,169,110,0.3);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);">CGC</span>
+          <span style="padding:0.5rem 1rem;border:1px solid rgba(201,169,110,0.3);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);">SWN</span>
+          <span style="padding:0.5rem 1rem;border:1px solid rgba(201,169,110,0.3);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);">SWCN</span>
+          <span style="padding:0.5rem 1rem;border:1px solid rgba(201,169,110,0.3);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);">SWIN</span>
+          <span style="padding:0.5rem 1rem;border:1px solid rgba(201,169,110,0.3);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);">SWEN</span>
+          <span style="padding:0.5rem 1rem;border:1px solid rgba(201,169,110,0.3);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);">SWBN</span>
+          <span style="padding:0.5rem 1rem;border:1px solid rgba(201,169,110,0.3);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);">SWCA</span>
+          <span style="padding:0.5rem 1rem;border:1px solid rgba(201,169,110,0.3);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);">SWIA</span>
+          <span style="padding:0.5rem 1rem;border:1px solid rgba(201,169,110,0.3);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);">SWBA</span>
+        </div>
+        <p class="service-body" style="margin-top:1.5rem">
+          These are independently judged AKC titles earned in competition — across every Scent Work
+          element (Container, Interior, Exterior, Buried) at Novice and Advanced levels.
+          A third party has repeatedly verified each dog's ability to find target odors
+          and work past distractions in varied real-world settings.
+        </p>
+      </div>
+      <div class="rocco-video-block">
+        <div class="rocco-video-frame">
+          <img src="assets/images/dogs/Lithium%20Rocco%20Run%20Thumb.jpg"
+               alt="Rocco — Dog Detects Lithium Battery Electrolytes — Advanced BioAnalytic detection run">
+        </div>
+        <a href="https://www.youtube.com/watch?v=xchijLUmRxk&t=15s"
+           target="_blank" rel="noopener"
+           class="rocco-video-watch">
+          <div class="rocco-video-watch-left">
+            <div class="rocco-video-play-icon">&#9654;</div>
+            <div>
+              <div class="rocco-video-label">Watch Rocco Search</div>
+              <div class="rocco-video-sub">YouTube &nbsp;·&nbsp; Full detection run &nbsp;·&nbsp; ESD harness</div>
+            </div>
+          </div>
+          <span class="rocco-video-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Current Status & Pilot -->
+  <section class="service-section" style="background:rgba(0,0,0,0.25);">
+    <span class="service-label">005 / The Founding Partner Program</span>
+    <h2 class="service-heading" style="max-width:700px;">
+      We're building the field data.<br>
+      <em>Join us in building it.</em>
+    </h2>
+    <div class="section-pair" style="margin-top:3rem; align-items:flex-start;">
+      <div>
+        <p class="service-body">
+          Our dogs reliably alert on all three target carbonates under controlled lab conditions —
+          64 scent points, 750 CFM active airflow, proofed against common data-center distractors
+          including isopropyl alcohol, Deoxit, CRC QD contact cleaner, Staticide, and propylene glycol.
+        </p>
+        <p class="service-body" style="margin-top:1rem">
+          The next step is field validation inside a live data center: real rack airflow, fan noise,
+          and background scent environment. That's where we generate the quantified metrics this
+          program hasn't yet measured outside the lab — detection rate, localization accuracy, and
+          false-alarm rate.
+        </p>
+      </div>
+      <div>
+        <p class="service-body">
+          Founding-partner sites become part of the scientific record. Your facility's validated data
+          contributes to a peer-reviewed foundation for this service line — and founding partners are
+          named in that documentation.
+        </p>
+        <p class="service-body" style="margin-top:1rem">
+          We're currently evaluating data centers for the founding cohort. Consideration is based on
+          facility configuration, battery density, and operational access. This is a mutual evaluation.
+        </p>
+        <div class="science-ref" style="margin-top:1.5rem">
+          <p><strong>Canine sensitivity baseline:</strong> Peer-reviewed work documents canine
+          detection of target VOCs down to 1.5–40 parts per trillion
+          (Concha et al., <em>Frontiers in Veterinary Science</em>, 2019).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="service-cta" id="contact">
+    <h2 class="cta-heading">Join the Founding Partner Program.</h2>
+    <p class="cta-body">
+      We're selecting founding data center partners for the field validation program.
+      No commitment — just a conversation about your facility and whether we're a fit.
+    </p>
+
+    <!-- Button shown by default -->
+    <div class="demo-cta-wrap" id="pilot-cta-wrap">
+      <button class="cta-button primary" id="open-pilot-form">See if your site qualifies →</button>
+    </div>
+
+    <!-- Form: hidden until button clicked -->
+    <div class="demo-form-wrap" id="pilot-form-wrap">
+      <p class="cta-body" style="margin-bottom:2rem;">
+        Tell us about your facility and we'll reach out within one business day.
+      </p>
+      <form class="demo-form" action="https://formspree.io/f/mykqakkn" method="POST">
+        <input type="text" name="_gotcha" style="display:none">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="p-name">Your Name</label>
+            <input type="text" id="p-name" name="name" placeholder="Jane Smith" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="p-company">Company / Data Center Name</label>
+            <input type="text" id="p-company" name="company" placeholder="Acme Data Centers LLC" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="p-role">Your Role</label>
+            <select id="p-role" name="role">
+              <option value="" disabled selected>Select your role</option>
+              <option>Data Center Manager</option>
+              <option>Facilities / Operations</option>
+              <option>Risk / Safety Officer</option>
+              <option>IT / Infrastructure</option>
+              <option>Executive / Owner</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="p-phone">Phone Number</label>
+            <input type="tel" id="p-phone" name="phone" placeholder="(555) 000-0000">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="p-email">Email Address</label>
+          <input type="email" id="p-email" name="email" placeholder="you@company.com" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="p-location">Facility Location (City, State)</label>
+            <input type="text" id="p-location" name="location" placeholder="Indianapolis, IN">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="p-racks">Approximate Battery Rack Count</label>
+            <select id="p-racks" name="rack_count">
+              <option value="" disabled selected>Select range</option>
+              <option>Under 50 racks</option>
+              <option>50 – 200 racks</option>
+              <option>200 – 500 racks</option>
+              <option>500+ racks</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="p-message">Anything you'd like us to know? (optional)</label>
+          <textarea id="p-message" name="message" placeholder="Current monitoring setup, facility type, timing, questions..."></textarea>
+        </div>
+
+        <div style="text-align:center;margin-top:0.75rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <button type="submit" class="cta-button primary" style="border:none;cursor:pointer;">
+            Submit Application →
+          </button>
+          <button type="button" id="close-pilot-form" class="cta-button" style="border:none;cursor:pointer;background:transparent;border:1px solid rgba(240,234,224,0.25);">
+            ← Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <p style="margin-top:2.5rem;font-size:0.72rem;color:rgba(240,234,224,0.3);letter-spacing:0.1em;">
+      info@advancedbioanalytic.com &nbsp;·&nbsp; (765) 585-1563 &nbsp;·&nbsp; Veedersburg, IN 47987
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div>
+      <div class="footer-brand">Advanced <strong>BioAnalytic</strong></div>
+      <div class="footer-nav" style="margin-top:1rem">
+        <a href="index.html">Home</a>
+        <a href="virus-detection.html">Virus Detection</a>
+        <a href="battery-detection.html">Lithium Detection</a>
+        <a href="mailto:info@advancedbioanalytic.com">Contact</a>
+      </div>
+    </div>
+    <div class="footer-contact">
+      <a href="mailto:info@advancedbioanalytic.com">info@advancedbioanalytic.com</a><br>
+      (765) 585-1563<br>
+      2009 South 100 West<br>
+      Veedersburg, IN 47987
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Advanced BioAnalytic · A DBA of Labncroft Partnership</p>
+      <p>Science references available upon request</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('site-nav');
+    const navBg = document.getElementById('mobile-nav-bg');
+    hamburger.addEventListener('click', () => {
+      const opening = !nav.classList.contains('open');
+      nav.classList.toggle('open');
+      if (navBg) navBg.classList.toggle('open', opening);
+      document.body.classList.toggle('nav-open', opening);
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      if (navBg) navBg.classList.remove('open');
+      document.body.classList.remove('nav-open');
+    }));
+
+    // Header scroll
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Scroll-reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.service-section, .pull-quote, .harness-callout, .service-cta').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(40px)';
+      el.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
+      observer.observe(el);
+    });
+  </script>
+
+  <script>
+    (function() {
+      var btn   = document.getElementById('open-pilot-form');
+      var close = document.getElementById('close-pilot-form');
+      var wrap  = document.getElementById('pilot-form-wrap');
+      var cta   = document.getElementById('pilot-cta-wrap');
+
+      function openForm() {
+        cta.style.display = 'none';
+        wrap.classList.add('open');
+      }
+
+      btn.addEventListener('click', function() {
+        openForm();
+        setTimeout(function() {
+          wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+      });
+
+      close.addEventListener('click', function() {
+        wrap.classList.remove('open');
+        cta.style.display = '';
+        cta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+
+      if (window.location.hash === '#contact') {
+        openForm();
+      }
+    })();
+  </script>
+  <div id="mobile-nav-bg"></div>
+</body>
+</html>
