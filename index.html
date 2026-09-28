@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Advanced BioAnalytic — Canine Detection Science</title>
-  <meta name="description" content="Advanced BioAnalytic deploys purpose-bred detection dogs for virus screening in skilled nursing facilities and lithium electrolyte detection in data centers.">
+  <title>VOCTEK — Canine Detection Science</title>
+  <meta name="description" content="VOCTEK deploys purpose-bred detection dogs for virus screening in skilled nursing facilities and lithium electrolyte detection in data centers.">
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,13 +16,15 @@
   <style>
     /* Index-specific overrides */
     body { background: var(--dark-warm); }
+    .header-logo-img { height: 34px; width: auto; display: block; }
+    .loader-logo { width: 210px; max-width: 62vw; height: auto; display: block; }
   </style>
 </head>
 <body>
 
   <!-- Loader -->
   <div id="loader">
-    <div class="loader-brand">Advanced BioAnalytic</div>
+    <img class="loader-logo" src="assets/brand/voctek-logo-cream.svg" alt="VOCTEK">
     <div class="loader-track">
       <div id="loader-bar"></div>
     </div>
@@ -27,7 +33,7 @@
 
   <!-- Header -->
   <header class="site-header" id="site-header">
-    <a href="index.html" class="header-logo">Advanced <span>BioAnalytic</span></a>
+    <a href="index.html" class="header-logo" aria-label="VOCTEK — home"><img class="header-logo-img" src="assets/brand/voctek-logo-cream.svg" alt="VOCTEK"></a>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -44,17 +50,14 @@
 
   <!-- Hero Standalone -->
   <section class="hero-standalone" id="hero">
-    <video class="hero-video" autoplay muted loop playsinline
-           poster="assets/images/dogs/rocco-server-scent.png">
-      <source src="assets/hero-video.mp4" type="video/mp4">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto"
+           poster="assets/images/hero-poster.jpg">
+      <source src="assets/voctek-hero-desktop.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
 
-    <!-- Hero phrase — GSAP fades in on load (desktop only) -->
-    <div class="hero-content" id="hero-phrase-1">
-      <span class="hero-label">001 / Canine Surveillance</span>
-      <h1 class="hero-heading">By the time you see it,<br>it's already cost you.</h1>
-    </div>
+    <!-- Tagline "By the time you see it, it's already cost you." is burned into the
+         VOCTEK hero video itself, so no HTML text overlay is layered here (avoids doubling). -->
 
     <!-- Scroll indicator — standalone, no GSAP dependency -->
     <div class="service-scroll-hint">
@@ -65,8 +68,8 @@
 
   <!-- Mobile Hero — vertical video, purpose-built for phones -->
   <section class="hero-mobile" id="hero-mobile">
-    <video class="hero-mobile-video" autoplay muted loop playsinline>
-      <source src="assets/images/dogs/hero-video%202%20vertical.mp4" type="video/mp4">
+    <video class="hero-mobile-video" autoplay muted loop playsinline preload="none">
+      <source src="assets/voctek-hero-mobile.mp4" type="video/mp4">
     </video>
     <div class="hero-mobile-overlay"></div>
     <div class="service-scroll-hint">
@@ -160,7 +163,7 @@
         <span class="section-label">003 / Two Service Lines</span>
         <h2 class="section-heading">Virus. Battery.<br>Two threats.<br>One breed.</h2>
         <p class="section-body">
-          Advanced BioAnalytic deploys purpose-trained Labrador Retrievers
+          VOCTEK deploys purpose-trained Labrador Retrievers
           from a 100-year family breeding tradition. Every dog serves one mission:
           find the threat before it costs you.
         </p>
@@ -207,7 +210,7 @@
 
   <!-- Mobile logo animation — between text sections and service line cards (hidden on desktop) -->
   <section class="mobile-logo-section" id="mobile-logo">
-    <video class="mobile-logo-video" autoplay muted loop playsinline>
+    <video class="mobile-logo-video" autoplay muted loop playsinline preload="none">
       <source src="assets/images/dogs/logo-animation%20vertical.mp4" type="video/mp4">
     </video>
   </section>
